@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 
 public class Controller {
 
+    private final static int NBMATRICES = 300;
     //TextField
     @FXML private TextField PiZeroX;
     @FXML private TextField PiZeroY;
@@ -23,7 +24,6 @@ public class Controller {
 
     //TextArea
     @FXML private TextArea text1;
-    @FXML private TextArea text2;
 
     @FXML
     private void lanceSimu(ActionEvent event) {
@@ -35,26 +35,52 @@ public class Controller {
         //Matrice resMult = Matrice.multiplication(vecteurInitial, transition);
 
         ArrayList<Matrice> simulation = Matrice.simuRegimePermanent(vecteurInitial, transition);
+        boolean objectifAtteint = Matrice.isObjectifAtteint(simulation);
 
         for (int i = 0; i < simulation.size(); i++) {
             text1.appendText("PI(" + (i+1) + ") = "+ simulation.get(i) + "\n");
         }
 
+        text1.appendText("\n");
+        if (objectifAtteint) {
+            text1.appendText("L'objectif de fumer maximum 1 jour sur 10 SERA atteint !");
+        } else {
+            text1.appendText("L'objectif de fumer maximum 1 jour sur 10 NE sera PAS atteint !");
+        }
 
-        //TODO autoscroll + endtext
     }
 
     @FXML
     private void lanceRecherche(ActionEvent event) {
-        clearTextArea(text2);
+        clearTextArea(text1);
 
+        Matrice vecteurInitial = new Matrice(PiZeroX, PiZeroY);
 
+        ArrayList<Matrice> les300MatriceGen = Matrice.genRandomMatrice(NBMATRICES);
 
+        for(int i= 0; i< NBMATRICES; i++) {
+            text1.appendText("M"+ (i+1) +" = "+les300MatriceGen.get(i) + "\n");
+        }
 
-        //TODO autoscroll + endtext
+        text1.appendText("\n");
+        text1.appendText(NBMATRICES + " matrices générées \n");
+        text1.appendText("\n");
+
+        ArrayList<Matrice> lesSolutions = Matrice.rechercheSolution(vecteurInitial , les300MatriceGen);
+
+        for(int i = 0; i< lesSolutions.size(); i++) {
+            text1.appendText("M"+ (i+1) +" = "+ lesSolutions.get(i) + "\n");
+        }
+
+        text1.appendText("\n");
+        text1.appendText(lesSolutions.size() + " matrices sont solutions \n");
+        text1.appendText("\n");
     }
 
     private void clearTextArea(TextArea text) {
         text.clear();
     }
+
+
+
 }
