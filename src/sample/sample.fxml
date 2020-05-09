@@ -13,9 +13,15 @@
    <children>
       <BorderPane prefHeight="600.0" prefWidth="800.0">
          <top>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <AnchorPane minHeight="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <TextField layoutX="50.0" layoutY="15.0" maxWidth="40.0" />
+                  <TextField fx:id="PiZeroX" layoutX="52.0" layoutY="100.0" maxWidth="40.0" text="1" />
+                  <TextField fx:id="PiZeroY" layoutX="113.0" layoutY="100.0" maxWidth="40.0" text="0" />
+                  <TextField fx:id="S11" layoutX="201.0" layoutY="29.0" maxWidth="40.0" text="0.4" />
+                  <TextField fx:id="S12" layoutX="262.0" layoutY="29.0" maxWidth="40.0" text="0.6" />
+                  <TextField fx:id="S21" layoutX="201.0" layoutY="63.0" maxWidth="40.0" text="0.4" />
+                  <TextField fx:id="S22" layoutX="262.0" layoutY="63.0" maxWidth="40.0" text="0.6" />
+                  <Button fx:id="lancerSimu" layoutX="201.0" layoutY="100.0" mnemonicParsing="false" onAction="#lanceSimu" text="Multiplication" />
                </children>
             </AnchorPane>
          </top>
