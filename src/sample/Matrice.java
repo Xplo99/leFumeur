@@ -31,6 +31,17 @@ public class Matrice {
 
         matrix.add(line0);
     }
+
+    //p élément en position 0,0
+    public double getPValue() {
+        return this.matrix.get(0).get(0);
+    }
+
+    //p élément en position 1,1
+    public double getQValue() {
+        return this.matrix.get(1).get(1);
+    }
+
     public Matrice(TextField s11, TextField s12, TextField s21, TextField s22) {
         this.matrix = new Vector<>();
         Vector<Double> line0 = new Vector<>();

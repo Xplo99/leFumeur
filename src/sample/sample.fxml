@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane alignment="center" hgap="10" prefHeight="600.0" prefWidth="800.0" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<GridPane alignment="center" hgap="10" prefHeight="700.0" prefWidth="800.0" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <columnConstraints>
       <ColumnConstraints />
    </columnConstraints>
@@ -11,7 +12,7 @@
       <RowConstraints />
    </rowConstraints>
    <children>
-      <BorderPane prefHeight="600.0" prefWidth="800.0">
+      <BorderPane prefHeight="700.0" prefWidth="800.0">
          <top>
             <AnchorPane minHeight="200.0" BorderPane.alignment="CENTER">
                <children>
@@ -27,8 +28,18 @@
             </AnchorPane>
          </top>
          <left>
-            <TextArea fx:id="text1" prefHeight="400.0" prefWidth="800.0" BorderPane.alignment="CENTER" />
+            <TextArea fx:id="text1" prefHeight="500.0" prefWidth="400.0" BorderPane.alignment="CENTER" />
          </left>
+         <right>
+            <LineChart fx:id="lineChart" prefHeight="500.0" prefWidth="400.0" title="p = f(q)" BorderPane.alignment="CENTER">
+              <xAxis>
+                <NumberAxis autoRanging="false" label="q" lowerBound="0.89" minorTickCount="50" side="BOTTOM" tickLabelGap="0.0" tickLength="0.0" tickUnit="0.01" upperBound="1.01" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis autoRanging="false" label="p" minorTickCount="50" side="LEFT" tickLabelGap="0.0" tickLength="0.0" tickUnit="0.1" upperBound="1.01" />
+              </yAxis>
+            </LineChart>
+         </right>
       </BorderPane>
    </children>
 </GridPane>
