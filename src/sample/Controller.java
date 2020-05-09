@@ -39,6 +39,9 @@ public class Controller {
         for (int i = 0; i < simulation.size(); i++) {
             text1.appendText("PI(" + (i+1) + ") = "+ simulation.get(i) + "\n");
         }
+
+
+        //TODO autoscroll + endtext
     }
 
     @FXML
@@ -48,7 +51,7 @@ public class Controller {
 
 
 
-
+        //TODO autoscroll + endtext
     }
 
     private void clearTextArea(TextArea text) {
