@@ -21,10 +21,17 @@
                   <TextField fx:id="S12" layoutX="262.0" layoutY="29.0" maxWidth="40.0" text="0.6" />
                   <TextField fx:id="S21" layoutX="201.0" layoutY="63.0" maxWidth="40.0" text="0.4" />
                   <TextField fx:id="S22" layoutX="262.0" layoutY="63.0" maxWidth="40.0" text="0.6" />
-                  <Button fx:id="lancerSimu" layoutX="201.0" layoutY="100.0" mnemonicParsing="false" onAction="#lanceSimu" text="Multiplication" />
+                  <Button fx:id="lancerSimu" layoutX="150.0" layoutY="150.0" mnemonicParsing="false" onAction="#lanceSimu" text="Simulation" />
+                  <Button fx:id="lancerRecherche" layoutX="300.0" layoutY="150.0" mnemonicParsing="false" onAction="#lanceRecherche" text="Recherche" />
                </children>
             </AnchorPane>
          </top>
+         <left>
+            <TextArea fx:id="text1" prefHeight="400.0" prefWidth="282.0" BorderPane.alignment="CENTER" />
+         </left>
+         <right>
+            <TextArea fx:id="text2" prefHeight="400.0" prefWidth="283.0" BorderPane.alignment="CENTER" />
+         </right>
       </BorderPane>
    </children>
 </GridPane>

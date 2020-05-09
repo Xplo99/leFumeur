@@ -1,12 +1,11 @@
 package sample;
 
+import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-
-import java.util.ArrayList;
 
 public class Controller {
 
@@ -19,18 +18,40 @@ public class Controller {
     @FXML private TextField S22;
 
     //Button
-    @FXML
-    private Button lancerSimu;
+    @FXML private Button lancerSimu;
+    @FXML private Button lancerRecherche;
+
+    //TextArea
+    @FXML private TextArea text1;
+    @FXML private TextArea text2;
 
     @FXML
     private void lanceSimu(ActionEvent event) {
+        clearTextArea(text1);
 
         Matrice vecteurInitial = new Matrice(PiZeroX, PiZeroY);
         Matrice transition = new Matrice(S11, S12, S21, S22);
 
-        Matrice resMult = Matrice.multiplication(vecteurInitial, transition);
+        //Matrice resMult = Matrice.multiplication(vecteurInitial, transition);
 
-        resMult.displayMatrix();
+        ArrayList<Matrice> simulation = Matrice.simuRegimePermanent(vecteurInitial, transition);
 
+        for (int i = 0; i < simulation.size(); i++) {
+            text1.appendText("PI(" + (i+1) + ") = "+ simulation.get(i) + "\n");
+        }
+    }
+
+    @FXML
+    private void lanceRecherche(ActionEvent event) {
+        clearTextArea(text2);
+
+
+
+
+
+    }
+
+    private void clearTextArea(TextArea text) {
+        text.clear();
     }
 }

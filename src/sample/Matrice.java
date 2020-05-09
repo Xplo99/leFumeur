@@ -2,9 +2,12 @@ package sample;
 
 import javafx.scene.control.TextField;
 
+import java.util.ArrayList;
 import java.util.Vector;
 
 public class Matrice {
+
+    private final static int NBSIMU = 100;
 
     Vector<Vector<Double>> matrix;
 
@@ -43,15 +46,29 @@ public class Matrice {
 
 
     /** Méthodes **/
-    public void displayMatrix() {
-        System.out.println(this.matrix);
+    public String toString() {
+        return this.matrix.toString();
     }
 
-    public static Matrice multiplication(Matrice m1, Matrice m2) {
+    private static Matrice multiplication(Matrice m1, Matrice m2) {
         Double valueX = m1.matrix.get(0).get(0) * m2.matrix.get(0).get(0) + m1.matrix.get(0).get(1) * m2.matrix.get(1).get(0);
         Double valueY = m1.matrix.get(0).get(0) * m2.matrix.get(0).get(1) + m1.matrix.get(0).get(1) * m2.matrix.get(1).get(1);
 
         Matrice res = new Matrice(valueX, valueY);
+        return res;
+    }
+
+    public static ArrayList<Matrice> simuRegimePermanent(Matrice m1, Matrice m2) {
+        ArrayList<Matrice> res = new ArrayList<Matrice>();
+
+        Matrice vecteurInitial = m1;
+
+        for (int i = 0; i< NBSIMU; i++) {
+            Matrice newVecteur = multiplication(vecteurInitial, m2);
+            res.add(newVecteur);
+            vecteurInitial = newVecteur;
+        }
+
         return res;
     }
 }
