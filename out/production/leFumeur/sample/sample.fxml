@@ -23,7 +23,7 @@
                   <TextField fx:id="S21" layoutX="337.0" layoutY="73.0" maxWidth="40.0" text="0.4" />
                   <TextField fx:id="S22" layoutX="403.0" layoutY="73.0" maxWidth="40.0" text="0.6" />
                   <Button fx:id="lancerSimu" layoutX="150.0" layoutY="150.0" mnemonicParsing="false" onAction="#lanceSimu" text="Régime permanent" />
-                  <Button fx:id="lancerRecherche" layoutX="530.0" layoutY="150.0" mnemonicParsing="false" onAction="#lanceRecherche" text="Recherchede solutions" />
+                  <Button fx:id="lancerRecherche" layoutX="530.0" layoutY="150.0" mnemonicParsing="false" onAction="#lanceRecherche" text="Recherche de solutions" />
                   <Label layoutX="52.0" layoutY="55.0" text="Conditions initiales" />
                   <Label layoutX="52.0" layoutY="79.0" text="Fume" />
                   <Label layoutX="116.0" layoutY="79.0" text="Ne fume pas" />
